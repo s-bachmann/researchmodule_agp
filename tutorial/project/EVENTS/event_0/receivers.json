@@ -1,0 +1,72 @@
+{
+    "XX.REC1.": {
+        "class_name": "salvus.flow.simple_config.receiver.cartesian.Point2D",
+        "salvus_version": "2025.1.2",
+        "arguments": {
+            "network_code": "XX",
+            "location_code": "",
+            "y": 800.0,
+            "x": 1010.0,
+            "station_code": "REC1",
+            "fields": [
+                "displacement"
+            ]
+        }
+    },
+    "XX.REC2.": {
+        "class_name": "salvus.flow.simple_config.receiver.cartesian.Point2D",
+        "salvus_version": "2025.1.2",
+        "arguments": {
+            "network_code": "XX",
+            "location_code": "",
+            "y": 800.0,
+            "x": 1110.0,
+            "station_code": "REC2",
+            "fields": [
+                "displacement"
+            ]
+        }
+    },
+    "XX.REC3.": {
+        "class_name": "salvus.flow.simple_config.receiver.cartesian.Point2D",
+        "salvus_version": "2025.1.2",
+        "arguments": {
+            "network_code": "XX",
+            "location_code": "",
+            "y": 800.0,
+            "x": 1210.0,
+            "station_code": "REC3",
+            "fields": [
+                "displacement"
+            ]
+        }
+    },
+    "XX.REC4.": {
+        "class_name": "salvus.flow.simple_config.receiver.cartesian.Point2D",
+        "salvus_version": "2025.1.2",
+        "arguments": {
+            "network_code": "XX",
+            "location_code": "",
+            "y": 800.0,
+            "x": 1310.0,
+            "station_code": "REC4",
+            "fields": [
+                "displacement"
+            ]
+        }
+    },
+    "XX.REC5.": {
+        "class_name": "salvus.flow.simple_config.receiver.cartesian.Point2D",
+        "salvus_version": "2025.1.2",
+        "arguments": {
+            "network_code": "XX",
+            "location_code": "",
+            "y": 800.0,
+            "x": 1410.0,
+            "station_code": "REC5",
+            "fields": [
+                "displacement"
+            ]
+        }
+    }
+}

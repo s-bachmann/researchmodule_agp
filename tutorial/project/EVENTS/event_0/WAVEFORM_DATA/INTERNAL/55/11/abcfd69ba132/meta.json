@@ -1,0 +1,193 @@
+{
+    "run_statistics": {
+        "salvus_version": "2025.1.2",
+        "runtime_in_seconds": 3.721424,
+        "start_time": "2025-12-11T14:47:37Z",
+        "end_time": "2025-12-11T14:47:40Z",
+        "working_directory": "/Users/salomebachmann/salvus_data/run_directory/job_2512111547493164_e976285102",
+        "number_of_ranks": 2
+    },
+    "machine_statistics": {
+        "username": "salomebachmann",
+        "hostname": "ext-107-075.eduroam.rwth-aachen.de",
+        "working_directory": "/Users/salomebachmann/salvus_data/run_directory/job_2512111547493164_e976285102",
+        "operating_system": "macOS",
+        "compile_time_mpi_version": "3.1",
+        "run_time_mpi_version": "3.1",
+        "cpu_statistics": {
+            "architecture": "ARM64",
+            "feature_flags": [
+                "fp",
+                "aes",
+                "pmull",
+                "sha1",
+                "sha2",
+                "crc32",
+                "atomics",
+                "fphp",
+                "asimdhp",
+                "asimdrdm",
+                "jscvt",
+                "fcma",
+                "lrcpc",
+                "dcpop",
+                "sha3",
+                "asimddp",
+                "sha512",
+                "asimdfhm",
+                "dit",
+                "uscat",
+                "flagm",
+                "sb",
+                "flagm2",
+                "frint",
+                "i8mm",
+                "bf16",
+                "bti"
+            ]
+        }
+    },
+    "forward_run_input": {
+        "domain": {
+            "dimension": 2,
+            "geometry": {
+                "filename": "/Users/salomebachmann/salvus_data/run_directory/job_2512111547493164_e976285102/input/mesh.h5",
+                "format": "hdf5"
+            },
+            "mesh": {
+                "filename": "/Users/salomebachmann/salvus_data/run_directory/job_2512111547493164_e976285102/input/mesh.h5",
+                "format": "hdf5"
+            },
+            "model": {
+                "filename": "/Users/salomebachmann/salvus_data/run_directory/job_2512111547493164_e976285102/input/mesh.h5",
+                "format": "hdf5"
+            },
+            "polynomial_order": 4
+        },
+        "hardware": {
+            "gpu": false
+        },
+        "output": {
+            "meta_data": {
+                "meta_json_filename": "/Users/salomebachmann/salvus_data/run_directory/job_2512111547493164_e976285102/output/meta.json",
+                "progress_json_filename": "/Users/salomebachmann/salvus_data/run_directory/job_2512111547493164_e976285102/output/progress.json"
+            },
+            "point_data": {
+                "filename": "/Users/salomebachmann/salvus_data/run_directory/job_2512111547493164_e976285102/output/receivers.h5",
+                "format": "hdf5",
+                "receiver": [
+                    {
+                        "fields": [
+                            "displacement"
+                        ],
+                        "location": [
+                            1010.0,
+                            800.0
+                        ],
+                        "location_code": "",
+                        "network_code": "XX",
+                        "station_code": "REC1"
+                    },
+                    {
+                        "fields": [
+                            "displacement"
+                        ],
+                        "location": [
+                            1110.0,
+                            800.0
+                        ],
+                        "location_code": "",
+                        "network_code": "XX",
+                        "station_code": "REC2"
+                    },
+                    {
+                        "fields": [
+                            "displacement"
+                        ],
+                        "location": [
+                            1210.0,
+                            800.0
+                        ],
+                        "location_code": "",
+                        "network_code": "XX",
+                        "station_code": "REC3"
+                    },
+                    {
+                        "fields": [
+                            "displacement"
+                        ],
+                        "location": [
+                            1310.0,
+                            800.0
+                        ],
+                        "location_code": "",
+                        "network_code": "XX",
+                        "station_code": "REC4"
+                    },
+                    {
+                        "fields": [
+                            "displacement"
+                        ],
+                        "location": [
+                            1410.0,
+                            800.0
+                        ],
+                        "location_code": "",
+                        "network_code": "XX",
+                        "station_code": "REC5"
+                    }
+                ],
+                "sampling_interval_in_time_steps": 1
+            },
+            "volume_data": {
+                "fields": [
+                    "displacement",
+                    "gradient-of-displacement"
+                ],
+                "filename": "/Users/salomebachmann/salvus_data/tmp_directory/job_2512111547493164_e976285102/volume_data_output.h5",
+                "format": "hdf5",
+                "sampling_interval_in_time_steps": 10,
+                "gradient_subsampling_interval": 1
+            }
+        },
+        "physics": {
+            "wave_equation": {
+                "attenuation": false,
+                "boundaries": [
+                    {
+                        "side_sets": [
+                            "x0",
+                            "x1",
+                            "y0"
+                        ],
+                        "taper_amplitude": 15.0,
+                        "type": "absorbing",
+                        "width_in_meters": 700.0
+                    }
+                ],
+                "courant_number": 0.6,
+                "end_time_in_seconds": 0.6,
+                "point_source": [
+                    {
+                        "location": [
+                            1000.0,
+                            500.0
+                        ],
+                        "source_time_function": {
+                            "center_frequency": 14.5,
+                            "wavelet": "ricker"
+                        },
+                        "spatial_type": "vector",
+                        "spatial_weights": [
+                            0.0,
+                            -10000000000.0
+                        ]
+                    }
+                ],
+                "start_time_in_seconds": -0.08,
+                "time_stepping_scheme": "newmark",
+                "time_step_in_seconds": 0.0009631728045325778
+            }
+        }
+    }
+}

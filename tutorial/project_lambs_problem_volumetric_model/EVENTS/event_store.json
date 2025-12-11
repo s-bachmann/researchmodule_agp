@@ -1,0 +1,17 @@
+{
+    "event_0": [
+        {
+            "class_name": "salvus.flow.simple_config.source.cartesian.MomentTensorPoint2D",
+            "salvus_version": "2025.1.2",
+            "arguments": {
+                "source_time_function": null,
+                "rotation_on_input": null,
+                "x": 500.0,
+                "y": 500.0,
+                "mxx": 1.0,
+                "myy": 1.0,
+                "mxy": 0.0
+            }
+        }
+    ]
+}

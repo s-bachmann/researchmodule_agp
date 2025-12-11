@@ -1,0 +1,16 @@
+{
+    "event_0": [
+        {
+            "class_name": "salvus.flow.simple_config.source.cartesian.VectorPoint2D",
+            "salvus_version": "2025.1.2",
+            "arguments": {
+                "source_time_function": null,
+                "rotation_on_input": null,
+                "x": 1000.0,
+                "y": 500.0,
+                "fx": 0.0,
+                "fy": -10000000000.0
+            }
+        }
+    ]
+}

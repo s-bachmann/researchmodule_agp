@@ -1,0 +1,13 @@
+{
+    "class_name": "salvus.project.configuration.model.volume.cartesian.GenericModel",
+    "salvus_version": "2025.1.2",
+    "arguments": {
+        "extrapolate": true,
+        "use_symlink": false,
+        "mode": null,
+        "ignore_element_flags": null,
+        "name": "volume",
+        "data": "volume.nc"
+    },
+    "external_file_hash": "65e08e04924ed1f1"
+}
