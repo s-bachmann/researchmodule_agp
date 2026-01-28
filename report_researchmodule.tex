@@ -1,0 +1,239 @@
+%===========================================================================
+% ============= Setup and formatting of the document ========================
+% ===========================================================================
+\documentclass[a4paper,10.5pt]{article}
+% ===========================================================================
+% ======================== Load packages ====================================
+% ===========================================================================
+
+% Add mathematical symbols, useful if you use a lot of formulas. This package automatically loads other important mathematical packages.
+\usepackage{amsmath}
+\usepackage{float}
+% The titletoc option of the appendix package produces a title "Appendix" when creating the appendix section with \appendix
+\usepackage[titletoc]{appendix}
+\usepackage{float}
+\usepackage{placeins}
+% Extends the array and tabular environments
+\usepackage{array}
+
+% Defines the language you want to use for the autocorrect (may not exist in all languages)
+%\usepackage[english]{babel}		%English
+\usepackage[english]{babel}	%German							
+
+% Allows to write bold math letters (to show vectors without the arrow)
+\usepackage{bm}
+
+% Enhances the quality of tables, another package for tables
+\usepackage{booktabs}
+
+% Specify that all captions should be written with a smaller font size than the main text
+\usepackage{caption} \captionsetup{font=small} % smaller caption font size
+% Personalise captions:
+\captionsetup[figure]{labelfont={bf},name={Fig.},labelsep=period}
+\captionsetup[table]{labelfont={bf},name={Table},labelsep=period}
+
+% To write text in color. In the text for instance write something in black and \textcolor{red}{something in red}
+\usepackage{color}
+
+% Color package for tables, to allow e.g. cells to be colored
+\usepackage{colortbl}
+
+% Another table package, for alignment
+\usepackage{ctable}
+
+% Greatly improves the flexibility of the list environmants itemize, enumerate and description
+\usepackage{enumitem}
+
+% Improves the management of the floats (i.e. the "free" things floating in the text like figures or tables). With this package you can use the order \begin{figure}[H] to force the figure to appear in the text at the location where you put it. Otherwise the figures will be placed close to that location but somewhere where it looks "nice", which is not always satisfying.
+\usepackage{float}
+
+% Easy use of German umlauts 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} 
+
+\usepackage{listings}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{white},   
+    commentstyle=\color[rgb]{0,0.5,0}, % Green comments
+    keywordstyle=\color[rgb]{0,0.5,0}, % Green keywords
+    numberstyle=\tiny\color[rgb]{0.6,0.6,0.6}, % Light gray line numbers
+    stringstyle=\color[rgb]{0.8,0.5,0.8}, % Light purple strings
+    basicstyle=\ttfamily\color{black}\footnotesize,
+    breakatwhitespace=false,             
+    breaklines=true,                     
+    captionpos=b,                        
+    keepspaces=true,                     
+    numbers=left,                        
+    numbersep=10pt,  % Increased space between line numbers and code                      
+    showspaces=false,                    
+    showstringspaces=false,              
+    showtabs=false,                      
+    tabsize=2                            
+}
+\lstset{style=mystyle}
+
+
+% Provides generic symbols for math and text
+\usepackage{gensymb}
+
+% Defines the geometry of the page, the margins
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+% Allows to include figures from e.g. jpg file
+\usepackage{graphicx}
+
+% So that one can click on references. Set reference color.
+\usepackage[colorlinks,bookmarks=false,linkcolor=blue,urlcolor=blue,color=blue]{hyperref}
+%\usepackage{hyperref}
+
+% To add filler text
+\usepackage{lipsum}
+
+% Reference and citation package, to work with author-date and numerical citations
+% The option comma separates several citations with commas.
+% The option numbers would use the nnumerical citation style (otherwise if not defined uses author-date)
+\usepackage{apacite}
+\usepackage[sort]{natbib}
+
+% Allow a manual modification of paragaph indentation
+% Sets the length of the indentation
+\usepackage{parskip}
+\setlength{\parindent}{1cm}
+
+% Set spacing between lines. Examples: \singlespacing or \doublespacing or \setstretch{1.2}
+% The definition of the spacings differs between different LaTeX packages or MS Word. If you want to get confused about the spacing, have a look there:
+% https://tex.stackexchange.com/questions/65849/confusion-onehalfspacing-vs-spacing-vs-word-vs-the-world/65985
+% Here we will go for \setstretch{1.5}
+\usepackage{setspace} \setstretch{1.25}
+
+% Allows the figure caption to be on the side (default=outer side)
+% Note: does not work with [H]
+\usepackage{sidecap}
+
+% For proper use of units
+\usepackage{siunitx}
+
+% To allow subcaptions, e.g. Figure 1 a).... b)...
+\usepackage{subcaption}
+
+% To change the font add the corresponding package, e.g below. Fonts with serif should be used for written reports while fonts without serif should be used for presentations.
+%\usepackage{times}
+
+% To modify title setup and referencing
+% tocbibind adds non-numbered sections to the table of contents
+% The nottoc does not show the table of contents in the table of contents
+\usepackage{titlesec}
+\usepackage[nottoc]{tocbibind}
+
+% Allows footnotes below tables, but still within the table environment.
+\usepackage{threeparttable}
+
+% Allows special types of underlining.
+% The normalem option keeps emphasized words in italic but not underlined (important for a correct bibliography)
+\usepackage[normalem]{ulem} % underline possible without underlinig emph. words
+
+% More symbols
+\usepackage{wasysym}
+
+% Allows the text to wrap around figures
+\usepackage{wrapfig}
+
+% For fun, using xkcd colors for text or table cells. Now you can decently hand in reports with text color "pea soup" or "light yellowish green", and there are other even more inventive names...
+% https://xkcd.com/color/rgb/
+\usepackage{xkcdcolors}
+
+
+% Automatic referencing for tables, figures, equations or sections
+% This package automatically detects the type of object you are referring to. Details in Section 6
+\usepackage{cleveref} % must be loaded after hyperref package
+%\crefname{object}{your name for singular}{and for plural}
+\crefname{table}{Table}{Tables}
+\crefname{section}{Section}{Sections}
+\crefname{figure}{Fig.}{Figs.}
+\crefname{equation}{Eq.}{Eqs.}
+\Crefname{figure}{Figure}{Figures}
+
+% Tables
+\usepackage{multicol}
+\usepackage{booktabs} % For formal tables
+\usepackage{multirow} % Required for multirow cells
+\usepackage{array}    % Required for centering in the multirow cells
+\usepackage{lipsum} % Zum Generieren von Blindtext
+
+% Rotate figures
+\usepackage{rotating}
+
+% Reset figure and table counting in appendices
+\usepackage{chngcntr}
+
+% Rotate page to landscape for large figures
+\usepackage{pdflscape}
+% ===========================================================================
+% ====================== Misc. commands =====================================
+% ===========================================================================
+
+% Define lines for tables
+\newcommand{\otoprule}{\midrule[\heavyrulewidth]}
+\newcommand*\rot{\rotatebox{90}} % rotate table entry
+
+% Define equation numbering to be dependent on the chapters. good for long reports, to avoid having equation 1 to 200, instead in Chapter 1 have equation 1.1 to 1.30, in Chapter 2 equations 2.1 to 2.20, etc.
+%\numberwithin{equation}{section}
+
+% To avoid single lines at the top and bottom of pages at all costs (give an infinite weight (=9999))
+\widowpenalty=9999
+\clubpenalty=9999
+
+% Define the width of subcaptions
+\captionsetup[subfigure]{width=0.9\textwidth}
+
+% Fancy headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyfoot{} % clear all footer fields
+\fancyhead[L]{Researchmodule in Applied Geophysics}
+\fancyhead[R]{WS 2025}
+\fancyfoot[C]{\thepage}
+% Placement in header: L left, C centre, R right
+
+% for blank pages before chapters without header
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+\hbox{}
+\vspace*{\fill}
+\thispagestyle{empty}
+\newpage
+\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+
+\newcommand\nobrkhyph{\mbox{-}}
+
+\begin{document}
+\pagenumbering{gobble} % no page numbering on the title page
+\thispagestyle{empty} % disable fancy headers on the title page
+
+\begin{center} % center the text only for the title page
+	\vspace*{200pt}
+	\textbf{\huge{PROJECT TITLE}\\
+	\vspace{75pt}
+	\textbf{\Large{Salome Bachmann (473462)}} \large{salome.bachmann@rwth-aachen.de}\\
+	\vspace{7pt}
+	\vspace{65pt}
+	\rule{\linewidth}{.5pt}
+		\large{\textbf{Research Module in Applied Geophysics}}\\
+        \large{\textbf{WS 2025}}\\
+		\large{\textbf{RWTH Aachen}}\\
+		\vspace{7pt}
+		\large{\today }\\
+	\rule{\linewidth}{.5pt}
+	\vspace{45pt}
+\end{center}
+
+\newpage
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}\setcounter{page}{1}
