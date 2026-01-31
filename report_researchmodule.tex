@@ -232,7 +232,7 @@
 	\vspace{45pt}
 \end{center}
 
-
+\newpage
 \begin{abstract}
 a short abstract (max. 300 words)  
 \end{abstract}
@@ -300,31 +300,40 @@ Sampling Interval       & 200   \\ \hline
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures/pure acoustic/layered/t=3.png}
-    \caption{Pure Acoustic layered model velocity output at timestep 3}
-    \label{fig:ac_layered_t3}
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/pure acoustic/layered/t=3.png}
+        \caption{Timestep 3}
+        \label{fig:ac_layered_t3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/pure acoustic/layered/t=6.png}
+        \caption{Timestep 6}
+        \label{fig:ac_layered_t6}
+    \end{subfigure}
+
+    \vspace{0.5em}
+
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/pure acoustic/layered/t=42.png}
+        \caption{Timestep 42}
+        \label{fig:ac_layered_t42}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/pure acoustic/layered/t=56.png}
+        \caption{Timestep 56}
+        \label{fig:ac_layered_t56}
+    \end{subfigure}
+
+    \caption{Pure Acoustic layered model velocity outputs at selected timesteps.}
+    \label{fig:ac_layered_all}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figures/pure acoustic/layered/t=6.png}
-    \caption{Pure Acoustic layered model velocity output at timestep 6}
-    \label{fig:ac_layered_t6}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figures/pure acoustic/layered/t=42.png}
-    \caption{Pure Acoustic layered model velocity output at timestep 42}
-    \label{fig:ac_layered_t42}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figures/pure acoustic/layered/t=56.png}
-    \caption{Pure Acoustic layered model at timestep 56}
-    \label{fig:ac_layered_t56}
-\end{figure}
 
 \subsection{Elastic}
 
@@ -332,31 +341,40 @@ Sampling Interval       & 200   \\ \hline
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures/elastic/layered/vector2D/t=3.png}
-    \caption{Elastic layered model at timestep 3 with 2D vector source}
-    \label{fig:el_layered_v2d_t3}
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/elastic/layered/vector2D/t=3.png}
+        \caption{Timestep 3}
+        \label{fig:el_layered_v2d_t3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/elastic/layered/vector2D/t=6.png}
+        \caption{Timestep 6}
+        \label{fig:el_layered_v2d_t6}
+    \end{subfigure}
+
+    \vspace{0.5em}
+
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/elastic/layered/vector2D/t=42.png}
+        \caption{Timestep 42}
+        \label{fig:el_layered_v2d_t42}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/elastic/layered/vector2D/t=56.png}
+        \caption{Timestep 56}
+        \label{fig:el_layered_v2d_t56}
+    \end{subfigure}
+
+    \caption{Elastic layered model outputs with 2D vector source at selected timesteps.}
+    \label{fig:el_layered_v2d_all}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figures/elastic/layered/vector2D/t=6.png}
-    \caption{Elastic layered model at timestep 6 with 2D vector source}
-    \label{fig:el_layered_v2d_t6}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figures/elastic/layered/vector2D/t=42.png}
-    \caption{Elastic layered model at timestep 42 with 2D vector source}
-    \label{fig:el_layered_v2d_t42}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figures/elastic/layered/vector2D/t=56.png}
-    \caption{Elastic layered model at timestep 56 with 2D vector source}
-    \label{fig:el_layered_v2d_t56}
-\end{figure}
 
 \subsubsection{Moment Tensor Source}
 
