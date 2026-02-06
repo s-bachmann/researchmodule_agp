@@ -391,6 +391,8 @@ Sampling Interval       & 200   \\ \hline
 
 \subsection{Elastic}
 
+\noindent The observations made about the speed of the wave propagation are also true for the elastic case with a vector source. The two-layer case is shown in figure \ref{fig:el_snowair_v2d_all}, the three layer case in \ref{fig:el_layered_v2d_all}. The waves from the vector point 2D source also do not propagate through the air in both cases, in the three layer case in figure \ref{fig:el_layered_v2d_all} also does not show propagation through the earth layer. 
+
 \subsubsection{Vector Source}
 \label{el_vector}
 
@@ -430,6 +432,8 @@ Sampling Interval       & 200   \\ \hline
     \label{fig:el_snowair_v2d_all}
 \end{figure}
 
+\noindent While the wavefields at larger distances look similar for both cases, the two layer case shows a behavior different from the three layer case at later timesteps in \ref{fig:el_snowair_v2d_t42}  and \ref{fig:el_snowair_v2d_t61} close to the source location. Here, ellipsoidal patterns can be seen, these are located at the same horizontal distance as the source location in all y-positions. Such patterns are absent in the three layer case. 
+
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.3\linewidth}
@@ -465,6 +469,8 @@ Sampling Interval       & 200   \\ \hline
     \caption{Elastic layered model outputs with 2D vector source at selected timesteps.}
     \label{fig:el_layered_v2d_all}
 \end{figure}
+
+\noindent While the two layer case shows distinct patterns close to the source, the three layer case in figure \ref{fig:el_layered_v2d_all} shows wavefronts of more extreme velocities propagating at later timesteps in \ref{fig:el_layered_v2d_t42} and \ref{fig:el_layered_v2d_t56}. In the two layer case, propagation velocities show no clear areas with extremes, velocities have the same magnitude everywhere. In addition, while the two layer case in \ref{fig:el_snowair_v2d_t42}  and \ref{fig:el_snowair_v2d_t61} shows patterns at the same x-location as the source, the same timesteps in the three-layer case shown in figures  \ref{fig:el_layered_v2d_t42} and \ref{fig:el_layered_v2d_t56} show a blindness at the x-location of the source, there is no velocity field above and below the source. 
 
 \subsubsection{Moment Tensor Source}
 \label{el_tensor}
@@ -557,11 +563,9 @@ Sampling Interval       & 200   \\ \hline
 \printbibliography
 
 \section{Appendix}
-\noindent The animations for the wavefield propagation of each source type can be found on polybox: https://polybox.ethz.ch/index.php/s/97aa3x2o2FtnMS5  \\
+\noindent The animations for the wavefield propagation of each source type can be found on polybox: \url{https://polybox.ethz.ch/index.php/s/97aa3x2o2FtnMS5}  \\
 
-\noindent The full code for all simulations run is stored on the github repository: https://github.com/s-bachmann/researchmodule_agp
-
-
+\noindent The full code for all simulations run is stored on the github repository: \url{https://github.com/s-bachmann/researchmodule_agp}
 
 
 \end{document}
