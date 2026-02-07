@@ -272,7 +272,7 @@ a short abstract (max. 300 words)
 \label{tab:material_properties}
 \begin{tabular}{|l|l|l|l|}
 \hline
-Material & \begin{tabular}[c]{@{}l@{}}\textbackslash{}rho\\ {[}kg/$\ m^3$|\end{tabular} & \begin{tabular}[c]{@{}l@{}}Vp\\ {[}m/s{]}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Vs\\ {[}m/s{]}\end{tabular} \\ \hline
+Material & \begin{tabular}[c]{@{}l@{}}\rho\\ {[}kg/$\ m^3$|\end{tabular} & \begin{tabular}[c]{@{}l@{}}Vp\\ {[}m/s{]}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Vs\\ {[}m/s{]}\end{tabular} \\ \hline
 Snow     & 180                                                                                       & 300                                                    & 150                                                    \\ \hline
 Air      & 1.2250                                                                                    & 332                                                    & 0                                                      \\ \hline
 Soil     & 2000                                                                                      & 2200                                                   & 880                                                    \\ \hline
@@ -551,6 +551,54 @@ Sampling Interval       & 200   \\ \hline
 
     \caption{Elastic layered model outputs with 2D moment tensor source at selected timesteps.}
     \label{fig:el_layered_mom_all}
+\end{figure}
+
+\subsection{Analysis of wave propagation in air}
+\noindent As the above results have shown, propagation of waves can not be seen in any of the results. This is not the case when a source is being placed in the air, as shown in figure for the pure acoustic case in the snow air model. The wave propagation in snow looks similar to that in figure \ref{fig:ac_snowair_t3},  which is the same timestep and source type, with the source placed in the snow. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{figures/pure acoustic/snow-air/t=3_air.png}
+    \caption{Pure acoustic case in snow-air model with source placed in the air.}
+    \label{ac_snowair_air}
+\end{figure}
+
+\noindent Alternatively, wave propagation can also be plotted in air only, with the source still located in snow. This is shown in figure \ref{fig:ac_snowair_air} for the two-layer pure acoustic case. When comparing the pressure wavefield in the air in figure \ref{fig:ac_snowair_air} to that in snow in figure \ref{fig:ac_snowair_all}, the wavefields in the air seem to be a continuation of those in snow. For the pure acoustic case, there are clear wavefields in the air when plotting them separately, but in the case of the velocity field, the plots show no significant wavefields. 
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/pure acoustic/snow-air/t=3_ar.png}
+        \caption{Timestep 3}
+        \label{fig:ac_snowair_air_t3}
+    \end{subfigure}
+    \hspace{0.02\linewidth}
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/pure acoustic/snow-air/t=6_air.png}
+        \caption{Timestep 6}
+        \label{fig:ac_snowair_air_t6}
+    \end{subfigure}
+
+    \vspace{0.5em}
+
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/pure acoustic/snow-air/t=42_air.png}
+        \caption{Timestep 42}
+        \label{fig:ac_snowair_air_t42}
+    \end{subfigure}
+   \hspace{0.02\linewidth}
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/pure acoustic/snow-air/t=61_air.png}
+        \caption{Timestep 61}
+        \label{fig:ac_snowair_air_t61}
+    \end{subfigure}
+
+    \caption{Elastic layered model outputs with 2D moment tensor source at selected timesteps.}
+    \label{fig:ac_snowair_air}
 \end{figure}
 
 
