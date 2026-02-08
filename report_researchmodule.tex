@@ -348,7 +348,7 @@ Sampling Interval       & 200   \\ \hline
     \label{fig:ac_snowair_all}
 \end{figure}
 
-\noindent Figure \ref{fig:ac_snowair_all} shows the pure acoustic case of the snow-air model. As shown in \ref{fig:ac_snowair_all}, the acoustic waves travel in the snow layer only. Figure \ref{fig:ac_layered_all} shows the pure acoustic case of the earth-snow-air model, where earth extends from 3m to 2m, snow from 2m to 1m depth and air from 1m to 0m, here, the acoustic waves from the scalar point source also only travel in the snow and earth layers. Figure \ref{fig:ac_snowair_all} shows wavefronts over several meters, whereas figure \ref{fig:ac_layered_all} shows much smaller wavefronts. At timestep 3 in the snow-air model, shown in figure \ref{fig:ac_snowair_t3}, the wavefield has already propagated, while at the same same timestep for the earth-snow-air model, shown in figure \ref{fig:ac_layered_t3}, the propagation is much less far. 
+\noindent Figure \ref{fig:ac_snowair_all} shows the pure acoustic case of the snow-air model. As shown in \ref{fig:ac_snowair_all}, the acoustic waves travel in the snow layer only. Figure \ref{fig:ac_layered_all} shows the pure acoustic case of the earth-snow-air model, where earth extends from 3m to 2m, snow from 2m to 1m depth and air from 1m to 0m, here, the acoustic waves from the scalar point source also only travel in the snow and earth layers. Figure \ref{fig:ac_snowair_all} shows wavefronts over several meters, whereas figure \ref{fig:ac_layered_all} shows much smaller wavefronts. At timestep 3 in the snow-air model, shown in figure \ref{fig:ac_snowair_t3}, the wavefield has already propagated, while at the same same timestep for the earth-snow-air model, shown in figure \ref{fig:ac_layered_t3}, the propagation is much less far.
 
 \begin{figure}[H]
     \centering
@@ -386,7 +386,9 @@ Sampling Interval       & 200   \\ \hline
     \label{fig:ac_layered_all}
 \end{figure}
 
-\noindent Slower propagation of the acoustic wavefield for the three-layer model can also be seen in \ref{fig:ac_layered_t42} and \ref{fig:ac_layered_t56}, it takes the wavefield 0.05273 seconds to reach the end of the model domain, while in the two-layer case the wavefield has almost reached the edge of the domain at 0.02551s, shown in \ref{fig:ac_snowair_t6}. 
+\noindent Slower propagation of the acoustic wavefield for the three-layer model can also be seen in \ref{fig:ac_layered_t42} and \ref{fig:ac_layered_t56}, it takes the wavefield 0.05273 seconds to reach the end of the model domain, while in the two-layer case the wavefield has almost reached the edge of the domain at 0.02551s, shown in \ref{fig:ac_snowair_t6}. \\
+
+\noindent The two layer model shows much less reflection at the snow-air interface, compared to the three layer model, for example in figure \ref{fig:ac_layered_t56}. 
 
 
 \subsection{Elastic}
@@ -605,6 +607,14 @@ Sampling Interval       & 200   \\ \hline
 
 \section{Discussion \& Outlook}
 \subsection{Discussion}
+
+\subsection{Effects observed at the snow-air interface}
+- Impedance contrast --> find papers that explain
+- Difference in reflections between two and three layers why?
+
+\subsection{Comparison of different source types}
+- Show directions of sources to explain propagation patterns
+- Difference between two and three layers EXPLAIN 
 
 \subsection{Outlook to Master Thesis Project}
 \noindent This research project serves as an useful preparation for the following master thesis. This project was crucial in learning how to use Mondaic Salvus modelling software, which will also be used in the thesis. Furthermore, the models generated and the results from different source types serve as a basis for the thesis project. From this preparation, I now understand for example that, as shown by the results of the different models and source types, including the air layer is not strictly necessary because there is no significant wave propagation in that layer, this will help to optimize model computation time in the thesis. The models used in this research project are much simpler than the ones which will be used in the master thesis, for example there is no topography included in these models and the snow layer is homogenous, which means that new models will need to be made for the thesis in order to represent the conditions on the mountain more accurately. 
