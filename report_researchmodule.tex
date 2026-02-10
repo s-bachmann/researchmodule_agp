@@ -609,8 +609,37 @@ Sampling Interval       & 200   \\ \hline
 \subsection{Discussion}
 
 \subsection{Effects observed at the snow-air interface}
-- Impedance contrast --> find papers that explain
-- Difference in reflections between two and three layers why?
+%- Impedance contrast --> find papers that explain
+%- Difference in reflections between two and three layers why?
+
+\noindent As observed in the pure acoustic results in section \ref{results_pure_ac} as well as in the elastic case discussed in \ref{el_vector} and \ref{el_tensor}, the final plots show no wave propagation in the air layer, unless one plots the pressure wave in the air layer only. \\
+
+\noindent As seen from the medium parameters in table \ref{tab:material_properties}, the s-wave velocity in air is 0, because it is a fluid. This means that at the interface, all incident s-waves are either reflected into the medium below or transformed to p-waves at the boundary \parencite{borcherdtReflectionRefractionGeneral1982}. This explains why only the pressure field can be seen in the plots in figure \ref{fig:ac_snowair_air}. The contrast between complexity of the wavefields in soil and snow shown for example in figure \ref{fig:el_layered_mom_t42} can also be explained by this. The snow layer has much more reflections of s-waves from the snow-air boundary, whereas s-waves can be refracted at the snow-soil boundary.\
+
+\noindent Furthermore, the medium properties in table \ref{tab:material_properties} also show a strong contrast in density \rho between all three mediums. According to the formulations of wave speed described by \cite{AkiRichards2002} and \cite{dennemanReflectionTransmissionWaves2002}, where \ref{P_wave_fluid} describes the speed of a p-wave in a pure acoustic medium, \ref{P_wave_speed} the p-wave speed with Lamé-parameters \lambda and \rho and \ref{s_wvae_speed} describes the s-wave speed. 
+\begin{subequations}
+    \label{Wavespeeds}
+        \begin{equation}
+            \label{P_wave_fluid}
+        c = \sqrt{\frac{K}{\rho}}
+        \end{equation}
+
+        \begin{equation}
+            \label{P_wave_speed}
+            V_p = \sqrt{\frac{\lambda + 2\mu}{\rho}}
+        \end{equation}
+
+        \begin{equation}
+            \label{s_wvae_speed}
+            V_s = \sqrt{\frac{\mu}{\rho}}
+        \end{equation}
+
+    \end{subequations}
+
+\noindent All of these equations show a dependance of wave speed to density, so it would make sense that in a material of lower density like air, the wave speed is much lower in amplitude and is scaled down. 
+
+
+
 
 \subsection{Comparison of different source types}
 - Show directions of sources to explain propagation patterns
