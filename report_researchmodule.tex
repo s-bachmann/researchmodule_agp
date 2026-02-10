@@ -639,11 +639,24 @@ Sampling Interval       & 200   \\ \hline
 \noindent All of these equations show a dependance of wave speed to density, so it would make sense that in a material of lower density like air, the wave speed is much lower in amplitude and is scaled down. 
 
 
+\subsection{Differences between two and three layer model}
+\noindent The faster propagation of the wavefield in the two-layer model compared to the three-layer model observed for example in figures \ref{fig:ac_snowair_all} and \ref{fig:ac_layered_all}, even thoough the time steps have the same number, can be explained by the fact that the timesteps are much smaller in the three-layer case. As shown in the simulation parameters in table \ref{tab:simulation_params}, both cases have the same end time and sampling interval in time. This can be explained by the the equations \ref{Wavespeeds}. Since the density as well as wavespeeds in the soil layer are much higher than in the soil layer, the waves which are transmitted into the lower layer, so the soil layer, travel much faster compared to the ones in the snow layer \parencite{treitelSeismicWavePropagation1966}. Because of the Courant-Friedrichs-Lewy stability condition, which is used by Salvus, which states that in two dimensions
 
+\begin{equation}
+\label{cfl_2d}
+C = \frac{u_x\,\Delta t}{\Delta x} + \frac{u_y\,\Delta t}{\Delta y}
+\le C_{\max}
+\end{equation}
+
+
+\noindent Where C is the courant number, u the velocity in x or in y direction, $\ \Delta x$ the step in x-direction, $\ \Delta y$ the step in y and $\ \Delta t$ the timestep \parencite{courantPartialDifferenceEquations1967}.  Because the velocity in the bottom layer in the soil is much higher, this means that in the two layer case, the timestep chosen for stability can be larger because the velocities are lower. \\
+
+\noindent The difference in wavefront patterns between the snow-air and the soil-snow-air model can be explained by transmissions and reflections from the different surfaces. Because the three layer case has one interface more at which the waves are reflected and refracted, it makes sense that the wave propagation patterns observed in the snow layer are more complex in the three-layer case. In other words, in the three layer case there are reflections and refractions from the snow-air boundary as well as the snow-soil boundary, whereas in the two layer case, those only happen at the snow-air boundary. 
 
 \subsection{Comparison of different source types}
-- Show directions of sources to explain propagation patterns
-- Difference between two and three layers EXPLAIN 
+%- Show directions of sources to explain propagation patterns
+%- Difference between two and three layers EXPLAIN 
+\noindent 
 
 \subsection{Outlook to Master Thesis Project}
 \noindent This research project serves as an useful preparation for the following master thesis. This project was crucial in learning how to use Mondaic Salvus modelling software, which will also be used in the thesis. Furthermore, the models generated and the results from different source types serve as a basis for the thesis project. From this preparation, I now understand for example that, as shown by the results of the different models and source types, including the air layer is not strictly necessary because there is no significant wave propagation in that layer, this will help to optimize model computation time in the thesis. The models used in this research project are much simpler than the ones which will be used in the master thesis, for example there is no topography included in these models and the snow layer is homogenous, which means that new models will need to be made for the thesis in order to represent the conditions on the mountain more accurately. 
@@ -653,6 +666,7 @@ Sampling Interval       & 200   \\ \hline
 \typeout{}
 \printbibliography
 
+\newpage
 \section{Appendix}
 \noindent The animations for the wavefield propagation of each source type can be found on polybox: \url{https://polybox.ethz.ch/index.php/s/97aa3x2o2FtnMS5}  \\
 
