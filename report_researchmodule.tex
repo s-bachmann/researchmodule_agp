@@ -720,6 +720,26 @@ The motion caused by the moment tensor source is shown in the beach ball in figu
 \printbibliography
 
 \newpage
+\section{Data Management}
+\noindent The following table \ref{tab:datamanagement} describes the data generated for the project and where it is stored:
+
+\begin{table}[H]
+    \centering
+\caption{Description of data types and storage locations}
+\label{tab:datamanagement}
+\begin{tabular}{|l|l|l|l|}
+\hline
+Data type              & Description                                                                                                       & Format         & Storage           \\ \hline
+Jupyter Notebooks      & \begin{tabular}[c]{@{}l@{}}Jupyter notebooks containing simulation, \\ model setup and plotting code\end{tabular} & .ipynb         & GitHub repository \\ \hline
+Volume output data     & Waveform data output by Salvus simulations                                                                        & .h5 and .xdmf  & Local (Harddisk)  \\ \hline
+Figures and animations & Wavefield output plots and animations                                                                             & .jpeg and .mov & Local and polybox \\ \hline
+Report                 & Latex document containing report                                                                                  & .tex           & Github repository \\ \hline
+\end{tabular}
+\end{table}
+
+\noindent A new data management plan will be needed for the master thesis, as the simulation files generated are very large and cannot be stored locally. The external storage of simulation files is also important for reproducibilty. 
+
+\newpage
 \section{Appendix}
 \noindent The animations for the wavefield propagation of each source type can be found on polybox: \url{https://polybox.ethz.ch/index.php/s/97aa3x2o2FtnMS5}  \\
 
