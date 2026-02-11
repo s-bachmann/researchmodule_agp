@@ -227,7 +227,7 @@
 
 \begin{center} % center the text only for the title page
 	\vspace*{200pt}
-	\textbf{\huge{Comparison of three source types in two and three layer models in Salvus}}\\
+	\textbf{\huge{The effect of the source type on wave propagation in a snow layer: 2D numerical comparison}}\\
 	\vspace{75pt}
 	\textbf{\Large{Salome Bachmann (473462)}} \\\large{salome.bachmann@rwth-aachen.de}\\
 	\vspace{7pt}
@@ -256,16 +256,17 @@
 
 \section{Introduction}
 %Introduction with a definition of the scientific question
-\noindent Snow avalanches are snow masses that descend slopes \parencite{schweizerSnowAvalancheFormation2003}. Snow avalanches can occur in different types, such as snow slab avalanches, where a slab of snow slides \parencite{gaumeSnowFractureRelation2017}. Such avalanches are among the most prominent hazards in mountainous regions \parencite{gaumeSnowFractureRelation2017}, they can be triggered by rapid loading near the surface, for example by a person skiing over them, or by a dynamite source \parencite{schweizerSnowAvalancheFormation2003}. The cracks caused by this propagate and eventually lead to material failure , the release of the slab is caused by an increase of shear stress in a weak layer in the snowpack \parencite{habermannInfluenceSnowpackLayering2008}. \\
+\noindent Snow avalanches are snow masses that descend slopes rapdily \parencite{schweizerSnowAvalancheFormation2003}. Snow avalanches can occur as different types, such as snow slab avalanches, where a slab of snow slides \parencite{gaumeSnowFractureRelation2017}. Such avalanches are among the most prominent hazards in mountainous regions \parencite{gaumeSnowFractureRelation2017}, they can be triggered by rapid loading near the surface, for example by a person skiing over them, or by a dynamite source \parencite{schweizerSnowAvalancheFormation2003}. The cracks caused by this propagate and eventually lead to material failure , the release of the slab is caused by an increase of shear stress in a weak layer in the snowpack \parencite{habermannInfluenceSnowpackLayering2008}. \\
 
 \noindent Understanding the signatures of different types of sources is crucial for understanding crack propagation. This research project aims to compare simulated wave propagation of three different source types (pure acoustic pressure source, elastic vector source,and a moment tensor source in 2d) in two different models, which are earth-snow-air and snow-air. The aim of this comparison is to determine which models and source types are useful to understand crack propagation in snow leading to slab avalanches, which will be analyzed in the Master Thesis. These considerations are not only based on the results of the different types of simulations, but also computation time and memory. 
 
 \section{Methodology}
 \subsection{Introduction to Mondaic Salvus Software}
-\noindent Before simulations were created, the Salvus software was installed according to the Mondaic website. Next, the Salvus tutorials concerning setup of seismic events, creation of different types of models, setup of simulations as well as output of the wavefield were worked through. This helped a lot with the setup of the simulations which is described in the following section.
+% \noindent Before simulations were created, the Salvus software was installed according to the Mondaic website. Next, the Salvus tutorials concerning setup of seismic events, creation of different types of models, setup of simulations as well as output of the wavefield were worked through. This helped a lot with the setup of the simulations which is described in the following section.
+\noindent Salvus is a numerical modelling software by Mondaic \parencite{GetSalvus}. It simulates wave propagation in different media using functions predefined by the software. Salvus has a large database of predefined seismic source functions, where the source parameters such as forces in different directions can be changed. These sources are placed in a medium defined by the user, an unstructured mesh is created. These meshes are created based on points obtained by finite-element methods, it uses a set number of Gauss-Lobtto-Legendre points for every element \parencite{GetSalvus}. In this case, a simulation is run which computes particle velocity at each of these mesh points at a timestep interval given. 
 
-\subsection{Setup of Simulations - Pure Acoustic \& Elastic Case}
-\noindent The first simulation which was set up is set in a homogenous domain 1m by 1m. The density (\rho) as well as p- and s-wave velocities have values of snow, which were taken from \cite{guillemotEffectSnowfallChanges2021}, table 2. All the medium parameters which were used in the three different models can be seen in table \ref{tab:material_properties}. The source, which is located halfway at the top of the domain (x=0.5, y=1) is a scalar point 2D source with force in negative y-direction. The field which was recorded in this case is the first time derivative of \phi, meaning the acoustic veloicty. This simulation was created to verify the setup of the domain and get more familiar with simulation setup. The s-waves were not recorded in this simulation, this is to minimize simulation time. This simulation will not be analyzed as a result. \\
+\subsection{Spectral element wave propagation with Salvus - acoustic \& elestic case}
+\noindent The first simulation which was set up is set in a homogenous domain 1m by 1m. The density (\rho) as well as p- and s-wave velocities have values of snow, which were taken from \cite{guillemotEffectSnowfallChanges2021}, table 2. All the medium parameters which were used in the three different models can be seen in table \ref{tab:material_properties}. The source, which is located halfway at the top of the domain (x=0.5, y=1) is a scalar point 2D source with force in negative y-direction. The field which was recorded in this case is $\ \frac{\partial \phi}{\partial t}$, meaning the particle velocity. This simulation was created to verify the setup of the domain and get more familiar with simulation setup. The s-waves were not recorded in this simulation, this is to minimize simulation time. This simulation will not be analyzed as a result. \\
 
 \begin{table}[H]
 \centering
@@ -280,7 +281,7 @@ Soil     & 2000                                                                 
 \end{tabular}
 \end{table}
 
-\noindent Next, a simulation with a snow-layer of 1m thickness and an 1m thick air layer was created, both layers have an x-extent of 30m. This was done by creating numpy-arrays with the edges of the layers in x and the y direction, so for the snow layer this would be [0,30] in x and [0,1] in y. Then, the model parameters were also defined as arrays. Then, a mesh was generated by interpolation between the edge points and the material parameters were assigned to the appropriate layers. Furthermore, absorbing boundaries were added to the bottom of the snow layer, the top of the air layer and all sides. This was done so that there are no reflections from the model boundaries, which is closer to a real-life scenario. First, a pure acoustic simulation with a scalar point 2D source was run, the source was located halfway in the snow layer, the simulation recorded the acoustic velocity field. The parameters used for simulation can be seen in table \ref{tab:simulation_params}. Next, the simulation was run for the elastic case with two different source types: a vector point source with fx=-1 and a moment tensor source with mxy=3e4. The vector source represents an explosive source in the snow, whereas the moment tensor source represents a slip on a surface. The mxy component of the force was chosen assuming a 70kg skier on the snow. The normal force was calculated according to $\ F = m*g = 70 * 9.81 = 700N$, the frictional shear force between the skis and the snow was assumed to be 100N, the slip distance 0.1m and the slip area on two skis 0.3$\ m^3$, the shear modulus \mu of snow $10^6$ Pa. This leads to $ M_0 = \mu * A * D = 10^6 * 0.3 * 0.1 = 3*10^4 N$. \\
+\noindent Next, a simulation with a snow-layer of 1m thickness and an 1m thick air layer was created, both layers have an x-extent of 30m. This was done by creating numpy-arrays with the edges of the layers in x and the y direction, so for the snow layer this would be [0,30] in x and [0,1] in y. Then, the model parameters were also defined as arrays. Then, a mesh was generated by interpolation between the edge points and the material parameters were assigned to the appropriate layers. Furthermore, absorbing boundaries were added to the bottom of the snow layer, the top of the air layer and all sides. This was done so that there are no reflections from the model boundaries, which is closer to a real-life scenario. First, a pure acoustic simulation with a scalar point 2D source was run, the source was located halfway in the snow layer, the simulation recorded the acoustic velocity field. The parameters used for simulation can be seen in table \ref{tab:simulation_params}. Next, the simulation was run for the elastic case with two different source types: a vector point source with fx=-1 and a moment tensor source with mxy=3e4, the myy and mxx components were chosen to be 0. The vector source represents an explosive source in the snow, whereas the moment tensor source represents a slip on a surface. The mxy component of the force was chosen assuming a 70kg skier on the snow. The normal force was calculated according to $\ F = m*g = 70 * 9.81 = 700N$, the frictional shear force between the skis and the snow was assumed to be 100N, the slip distance 0.1m and the slip area on two skis 0.3$\ m^3$, the shear modulus \mu of snow $10^6$ Pa. This leads to $ M_0 = \mu * A * D = 10^6 * 0.3 * 0.1 = 3*10^4 N$. \\
 
 
 \noindent Lastly, a three layered model was set up, which consists of a 1m soil layer, a 1m snow layer and an 1m air layer, all with 30m lateral extent, was set up as described above. Again, absorbing boundaries were added, instead of the bottom of the snow layer the absorbing boundary conditions were added to the bottom of the soil layer.  The medium properties are shown in table \ref{tab:material_properties}.  Again, first the pure acoustic case was considered, with the same source type and field as described above. Then, the elastic case was recorded with a sources of the same types as above located halfaway in the snow layer. The simulation parameters used can be seen in table \ref{tab:simulation_params}. 
@@ -299,12 +300,12 @@ Sampling Interval       & 200   \\ \hline
 \end{table}
 
 
-\subsection{Physical Considerations}
+\subsection{Numerical Considerations for wave physics}
 \noindent To set up the simulation parameters in table \ref{tab:simulation_params} and the different models, a few physical considerations were needed. \\
 
-\noindent Firstly, the extent of the layers needs to be plausible. Not only do avalanches usually occur over large spatial extent, the lateral extension of the model also needs to be large enough so that far-field effects of the waves can be observed. A function in was written in python which performs these calculations.  This was determined by taking the maximum and minimum speed present in the model, the speeds are the same as in table \ref{tab:material_properties}. The source wavelet, which was a ricker wavelet in all cases, was fast-fourier transformed (fft). From the frequency values of the wavelet, the minimum and maximum frequency were determined. The smallest and largest wavelengths to be resolved were determined accoding to $\ \lambda_{min} = \frac{v_{min}}{f_{max}}$ and $\ \lambda_{max} = \frac{v_{max}}{f_{min}}$, where \lambda is the minimum or maximum wavelength, v is the velocity and f is the frequency determined by the fft. To observe far-field effects, the medium needs to be much larger in the x-direction than the maximum wavelength to be resolved. In this case, the maximum wavelength determined was about 2cm, which means that an x-extent of 30m is sufficient.The vertical thickness of the layers was determined by real-world considerations, meaning that they were determined by what is plausible, a 40m snow layer for example would not be very likely. \\
+\noindent Firstly, the extent of the layers needs to be plausible. Not only do avalanches usually occur over large spatial extent, the lateral extension of the model also needs to be large enough so that far-field effects of the waves can be observed. A function was written in python which performs these calculations.  This was determined by taking the maximum and minimum speed present in the model, the speeds are the same as in table \ref{tab:material_properties}. The source wavelet, which was a ricker wavelet in all cases, was fast-fourier transformed (fft). From the frequency values of the wavelet, the minimum and maximum frequency were determined. The smallest and largest wavelengths to be resolved were determined accoding to $\ \lambda_{min} = \frac{v_{min}}{f_{max}}$ and $\ \lambda_{max} = \frac{v_{max}}{f_{min}}$, where \lambda is the minimum or maximum wavelength, v is the velocity and f is the frequency determined by the fft. To observe far-field effects, the medium needs to be much larger in the x-direction than the maximum wavelength to be resolved. In this case, the maximum wavelength determined was about 2cm, which means that an x-extent of 30m is sufficient.The vertical thickness of the layers was determined by real-world considerations, meaning that they were determined by what is plausible, a 40m snow layer for example would not be very likely. \\
 
-\noindent The center frequency of the source was determined by the layer thicknesses. The maximum wavelength to reslove a layer is about 4 times the thickness of the layer: $\  \lambda = 4*y_{layer}$. From this, wavelength was converted to frequency according to $\ f = \frac{v}{\lambda} $. The velocity which was taken is the maximum velocity in present in the model. With the medium parameters in table \ref{tab:material_properties}, the calculation is $\ \lambda = 4*1 = 4 $, which leads to $\ f = \frac{2200}{4} = 550 Hz$ Based on the layer thicknesses and speeds present, a center frequency of 700Hz was chosen to make sure all layers are resolved well. \\
+\noindent The center frequency of the source was determined by the layer thicknesses. The minimum thickness of a layer that can be resolved is about $\ \frac{\lambda}{4}$, the wavelength can be converted to frequency according to $ \ f = \frac{v}{\lambda}$ \parencite{SeismicResolutionVertical2018}. The velocity taken for this consideration was the maximum velocity present in the model. Based on the layer thicknesses and speeds present, a center frequency of 700Hz was chosen to make sure all layers are resolved well. This is a very high center frequency, the DAS data and modelling used in the thesis will use a much lower center frequency. \\
 
 \noindent The simulation sampling interval is a tradeoff between simulation time, memory needed and resolution. The larger the sampling interval, the fewer samples in time. The appropriate time step was determined by the Nyquist sampling criterion where there need to be at least two sampling points per period: $\ f_{sampling} = \frac{1}{frequency} * \frac{1}{2}$, where the frequency is the maximum meaningful frequency of the wavelet, which can be obtained by plotting the wavelet. 
 
@@ -312,6 +313,8 @@ Sampling Interval       & 200   \\ \hline
 \section{Results}
 \subsection{Pure Acoustic}
 \label{results_pure_ac}
+
+\noindent As mentioned in the methods section, the source used in the pure acoustic case is a 2D scalar point source in negative y-direction.
 
 \begin{figure}[H]
     \centering
@@ -389,12 +392,12 @@ Sampling Interval       & 200   \\ \hline
 
 \noindent Slower propagation of the acoustic wavefield for the three-layer model can also be seen in \ref{fig:ac_layered_t42} and \ref{fig:ac_layered_t56}, it takes the wavefield 0.05273 seconds to reach the end of the model domain, while in the two-layer case the wavefield has almost reached the edge of the domain at 0.02551s, shown in \ref{fig:ac_snowair_t6}. \\
 
-\noindent The two layer model shows much less reflection at the snow-air interface, compared to the three layer model, for example in figure \ref{fig:ac_layered_t56}. 
+\noindent The two layer model shows much less reflection at the snow-air interface, compared to the three layer model, for example in figure \ref{fig:ac_layered_t56}. It is also important to note that the layers are a bit less thick in the 3 layer case compared to the 2 layer case. 
 
 
 \subsection{Elastic}
 
-\noindent The observations made about the speed of the wave propagation are also true for the elastic case with a vector source. The two-layer case is shown in figure \ref{fig:el_snowair_v2d_all}, the three layer case in \ref{fig:el_layered_v2d_all}. The waves from the vector point 2D source also do not propagate through the air in both cases, in the three layer case in figure \ref{fig:el_layered_v2d_all} also does not show propagation through the earth layer. 
+\noindent The observations made about the speed of the wave propagation are also true for the elastic case with a vector source, the vector source has a negative y-direction. The two-layer case is shown in figure \ref{fig:el_snowair_v2d_all}, the three layer case in \ref{fig:el_layered_v2d_all}. The waves from the vector point 2D source also do not propagate through the air in both cases, in the three layer case in figure \ref{fig:el_layered_v2d_all} also does not show propagation through the earth layer. 
 
 \subsubsection{Vector Source}
 \label{el_vector}
@@ -431,7 +434,7 @@ Sampling Interval       & 200   \\ \hline
         \label{fig:el_snowair_v2d_t61}
     \end{subfigure}
 
-    \caption{Elastic snow-air model outputs with 2D vector source at selected timesteps.}
+    \caption{Elastic snow-air model outputs with 2D vector source in negative y at selected timesteps.}
     \label{fig:el_snowair_v2d_all}
 \end{figure}
 
@@ -469,16 +472,16 @@ Sampling Interval       & 200   \\ \hline
         \label{fig:el_layered_v2d_t56}
     \end{subfigure}
 
-    \caption{Elastic layered model outputs with 2D vector source at selected timesteps.}
+    \caption{Elastic layered model outputs with 2D vector source in negative y at selected timesteps.}
     \label{fig:el_layered_v2d_all}
 \end{figure}
 
-\noindent While the two layer case shows distinct patterns close to the source, the three layer case in figure \ref{fig:el_layered_v2d_all} shows wavefronts of more extreme velocities propagating at later timesteps in \ref{fig:el_layered_v2d_t42} and \ref{fig:el_layered_v2d_t56}. In the two layer case, propagation velocities show no clear areas with extremes, velocities have the same magnitude everywhere. In addition, while the two layer case in \ref{fig:el_snowair_v2d_t42}  and \ref{fig:el_snowair_v2d_t61} shows patterns at the same x-location as the source, the same timesteps in the three-layer case shown in figures  \ref{fig:el_layered_v2d_t42} and \ref{fig:el_layered_v2d_t56} show a blindness at the x-location of the source, there is no velocity field above and below the source. 
+\noindent While the two layer case shows distinct patterns close to the source, the three layer case in figure \ref{fig:el_layered_v2d_all} shows wavefronts of more extreme velocities propagating at later timesteps in \ref{fig:el_layered_v2d_t42} and \ref{fig:el_layered_v2d_t56}. In the two layer case, particle velocities show no clear areas with extremes, velocities have the same magnitude everywhere. In addition, while the two layer case in \ref{fig:el_snowair_v2d_t42}  and \ref{fig:el_snowair_v2d_t61} shows patterns at the same x-location as the source, the same timesteps in the three-layer case shown in figures  \ref{fig:el_layered_v2d_t42} and \ref{fig:el_layered_v2d_t56} show a blindness at the x-location of the source, there is no velocity field above and below the source. 
 
 \subsubsection{Moment Tensor Source}
 \label{el_tensor}
 
-\noindent The moment tensor source representing a skier sliding on the snow also does not show any wave propagation through the air layer for both the two layer case in figure \ref{fig:el_snowair_mom_all} and three layer in \ref{fig:el_layered_mom_all}. Here, the difference in distance of the wavefield propagation between the two and three layer case is not as remarkable as the other source types, at timestep 6, figures \ref{fig:el_snowair_mom_t3} and \ref{fig:el_layered_mom_t3} show similar propagation distances in the horizontal direction. 
+\noindent The moment tensor source representing a skier sliding on the snow also does not show any wave propagation through the air layer for both the two layer case in figure \ref{fig:el_snowair_mom_all} and three layer in \ref{fig:el_layered_mom_all}. The source is located within the snowpack because as mentioned in the introduction, avalanches are usually triggered by a weak layer breaking. Here, the difference in distance of the wavefield propagation between the two and three layer case is not as remarkable as the other source types, at timestep 6, figures \ref{fig:el_snowair_mom_t3} and \ref{fig:el_layered_mom_t3} show similar propagation distances in the horizontal direction. 
 
 \begin{figure}[H]
     \centering
@@ -512,7 +515,7 @@ Sampling Interval       & 200   \\ \hline
         \label{fig:el_snowair_mom_t61}
     \end{subfigure}
 
-    \caption{Elastic snow-air model outputs with 2D moment tensor source at selected timesteps.}
+    \caption{Elastic snow-air model outputs with 2D moment tensor source with myy,mxx=0, mxy=3e4 at selected timesteps.}
     \label{fig:el_snowair_mom_all}
 \end{figure}
 
@@ -552,7 +555,7 @@ Sampling Interval       & 200   \\ \hline
         \label{fig:el_layered_mom_t56}
     \end{subfigure}
 
-    \caption{Elastic layered model outputs with 2D moment tensor source at selected timesteps.}
+    \caption{Elastic layered model outputs with 2D moment tensor source with myy,mxx=0, mxy=3e4 at selected timesteps.}
     \label{fig:el_layered_mom_all}
 \end{figure}
 
@@ -617,7 +620,7 @@ Sampling Interval       & 200   \\ \hline
 
 \noindent As seen from the medium parameters in table \ref{tab:material_properties}, the s-wave velocity in air is 0, because it is a fluid. This means that at the interface, all incident s-waves are either reflected into the medium below or transformed to p-waves at the boundary \parencite{borcherdtReflectionRefractionGeneral1982}. This explains why only the pressure field can be seen in the plots in figure \ref{fig:ac_snowair_air}. The contrast between complexity of the wavefields in soil and snow shown for example in figure \ref{fig:el_layered_mom_t42} can also be explained by this. The snow layer has much more reflections of s-waves from the snow-air boundary, whereas s-waves can be refracted at the snow-soil boundary.\
 
-\noindent Furthermore, the medium properties in table \ref{tab:material_properties} also show a strong contrast in density \rho between all three mediums. According to the formulations of wave speed described by \cite{AkiRichards2002} and \cite{dennemanReflectionTransmissionWaves2002}, where \ref{P_wave_fluid} describes the speed of a p-wave in a pure acoustic medium, \ref{P_wave_speed} the p-wave speed with Lamé-parameters \lambda and \rho and \ref{s_wvae_speed} describes the s-wave speed. 
+\noindent Furthermore, the medium properties in table \ref{tab:material_properties} also show a strong contrast in density \rho between all three mediums. According to the formulations of wave speed described by \cite{AkiRichards2002} and \cite{dennemanReflectionTransmissionWaves2002}, where \ref{P_wave_fluid} describes the speed of a p-wave in a pure acoustic medium, \ref{P_wave_speed} the p-wave speed with Lamé-parameters \lambda  and \rho and \ref{s_wvae_speed} describes the s-wave speed. 
 \begin{subequations}
     \label{Wavespeeds}
         \begin{equation}
@@ -637,8 +640,12 @@ Sampling Interval       & 200   \\ \hline
 
     \end{subequations}
 
-\noindent All of these equations show a dependance of wave speed to density, so it would make sense that in a material of lower density like air, the wave speed is much lower in amplitude and is scaled down. 
+\noindent All of these equations show a dependance of wave speed to density, which means that low density leads to high velocities. When looking at the bulk modulus K of a material, which describes how resistant a material is to change \parencite{BulkModulus2016}. 
+\begin{equation}
+    K = \rho (V_p^2 - \frac{4}{3}V_s^2)
+\end{equation}
 
+\noindent which is dependent on the density and velocity of a material and displacement, the air layer with low densities has a high speed and a low K compared to the other layers. This means that there is a very large impedance contrast, which causes most of the waves to be reflected into the snow layer, which leads to small amplitudes in the air layer. 
 
 \subsection{Differences between two and three layer model}
 \noindent The faster propagation of the wavefield in the two-layer model compared to the three-layer model observed for example in figures \ref{fig:ac_snowair_all} and \ref{fig:ac_layered_all}, even thoough the time steps have the same number, can be explained by the fact that the timesteps are much smaller in the three-layer case. As shown in the simulation parameters in table \ref{tab:simulation_params}, both cases have the same end time and sampling interval in time. This can be explained by the the equations \ref{Wavespeeds}. Since the density as well as wavespeeds in the soil layer are much higher than in the soil layer, the waves which are transmitted into the lower layer, so the soil layer, travel much faster compared to the ones in the snow layer \parencite{treitelSeismicWavePropagation1966}. Because of the Courant-Friedrichs-Lewy stability condition, which is used by Salvus, which states that in two dimensions
