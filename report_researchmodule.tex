@@ -610,8 +610,6 @@ Sampling Interval       & 200   \\ \hline
 
 
 \section{Discussion \& Outlook}
-\subsection{Discussion}
-
 \subsection{Effects observed at the snow-air interface}
 %- Impedance contrast --> find papers that explain
 %- Difference in reflections between two and three layers why?
@@ -620,7 +618,7 @@ Sampling Interval       & 200   \\ \hline
 
 \noindent As seen from the medium parameters in table \ref{tab:material_properties}, the s-wave velocity in air is 0, because it is a fluid. This means that at the interface, all incident s-waves are either reflected into the medium below or transformed to p-waves at the boundary \parencite{borcherdtReflectionRefractionGeneral1982}. This explains why only the pressure field can be seen in the plots in figure \ref{fig:ac_snowair_air}. The contrast between complexity of the wavefields in soil and snow shown for example in figure \ref{fig:el_layered_mom_t42} can also be explained by this. The snow layer has much more reflections of s-waves from the snow-air boundary, whereas s-waves can be refracted at the snow-soil boundary.\
 
-\noindent Furthermore, the medium properties in table \ref{tab:material_properties} also show a strong contrast in density \rho between all three mediums. According to the formulations of wave speed described by \cite{AkiRichards2002} and \cite{dennemanReflectionTransmissionWaves2002}, where \ref{P_wave_fluid} describes the speed of a p-wave in a pure acoustic medium, \ref{P_wave_speed} the p-wave speed with Lamé-parameters \lambda  and \rho and \ref{s_wvae_speed} describes the s-wave speed. 
+\noindent Furthermore, the medium properties in table \ref{tab:material_properties} also show a strong contrast in density \rho between all three mediums. According to the formulations of wave speed described by \cite{akiQuantitativeSeismology2002} and \cite{dennemanReflectionTransmissionWaves2002}, where \ref{P_wave_fluid} describes the speed of a p-wave in a pure acoustic medium, \ref{P_wave_speed} the p-wave speed with Lamé-parameters \lambda  and \rho and \ref{s_wvae_speed} describes the s-wave speed. 
 \begin{subequations}
     \label{Wavespeeds}
         \begin{equation}
@@ -664,7 +662,38 @@ C = \frac{u_x\,\Delta t}{\Delta x} + \frac{u_y\,\Delta t}{\Delta y}
 \subsection{Comparison of different source types}
 %- Show directions of sources to explain propagation patterns
 %- Difference between two and three layers EXPLAIN 
-\noindent 
+\noindent The results show significant differences in propagation patterns between the different source types. To understand the patterns shown, figure \ref{fig:Source_dir} shows the directions of the force of the source with an orange arrow. \cite{eatonResolutionMicroseismicMoment2009}, was used to help visualize the moment tensor source direction. 
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\linewidth}
+        \includegraphics[width=\linewidth]{figures/model_sketch_v_s.png}
+        \caption{Source location (orange dot) and source direction (orange arrow) for scalar point and vector source}
+        \label{fig:source_dir_v_s}
+    \end{subfigure}
+   \hspace{0.02\linewidth}
+    \begin{subfigure}[t]{0.47\linewidth}
+        \includegraphics[width=\linewidth]{figures/model_sketch_mom.png}
+        \caption{Source location (orange dot) and source direction (orange arrow) for moment tensor source}
+        \label{fig:source_dir_mom}
+    \end{subfigure}
+    \caption{Source types used with directions of source force indicated by orange arrow. The components not shown are zero.}
+    \label{fig:Source_dir}
+\end{figure}
+
+\noindent When comparing the scalar point 2D source and the vector point 2D source in figures \ref{fig:ac_snowair_all}, \ref{fig:ac_layered_all}, \ref{fig:el_snowair_v2d_all} and \ref{fig:el_layered_v2d_all} to the source direction in \ref{fig:source_dir_v_s}, it becomes clear that the particle velocity patterns are shaped like a half-elipsis perpendicular to the direction of propagation and opposite to the direction of propagation. \\
+
+\begin{wrapfigure}{R}{0.2\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/beach-ball-f86c9ffe3ac22e01ceac5d3f0eeafda2.png}
+    \caption{Beach ball for moment tensor focal mechanism. Blue arrows indicate direction of movement, purple arrows indicate tangential movement of material. Black areas indicate expansion, white areas indicate compression \parencite{MomentTensorsPractical2025}.}
+    \label{fig:beachball_mom} 
+\end{wrapfigure}
+
+\noindent In the moment tensor source case, whose directions are shown in figure \ref{fig:source_dir_mom} and the corresponding results in \ref{fig:el_snowair_mom_all} and \ref{fig:el_layered_mom_all}, both cases show half-ellipsoidal particle velocity propagation in negative y-direction. 
+The motion caused by the moment tensor source is shown in the beach ball in figure \ref{fig:beachball_mom}, where the blue arrows indicate direction of motion by the source. This means that there is expansion in the horizontal direction, indicated by the black area in \ref{fig:beachball_mom}, which corresponds well with the velocity fields observed, since the tangential motion between the expansion and compression indicated by the purple arrows has the same shape as the wavefronts observed. 
+
+
 
 \subsection{Outlook to Master Thesis Project}
 \noindent This research project serves as an useful preparation for the following master thesis. This project was crucial in learning how to use Mondaic Salvus modelling software, which will also be used in the thesis. Furthermore, the models generated and the results from different source types serve as a basis for the thesis project. From this preparation, I now understand for example that, as shown by the results of the different models and source types, including the air layer is not strictly necessary because there is no significant wave propagation in that layer, this will help to optimize model computation time in the thesis. The models used in this research project are much simpler than the ones which will be used in the master thesis, for example there is no topography included in these models and the snow layer is homogenous, which means that new models will need to be made for the thesis in order to represent the conditions on the mountain more accurately. 
