@@ -256,9 +256,9 @@
 
 \section{Introduction}
 %Introduction with a definition of the scientific question
-\noindent Snow avalanches are snow masses that descend slopes rapdily \parencite{schweizerSnowAvalancheFormation2003}. Snow avalanches can occur as different types, such as snow slab avalanches, where a slab of snow slides \parencite{gaumeSnowFractureRelation2017}. Such avalanches are among the most prominent hazards in mountainous regions \parencite{gaumeSnowFractureRelation2017}, they can be triggered by rapid loading near the surface, for example by a person skiing over them, or by a dynamite source \parencite{schweizerSnowAvalancheFormation2003}. The cracks caused by this propagate and eventually lead to material failure , the release of the slab is caused by an increase of shear stress in a weak layer in the snowpack \parencite{habermannInfluenceSnowpackLayering2008}. \\
+\noindent Snow avalanches are snow masses that descend slopes rapdily \parencite{schweizerSnowAvalancheFormation2003}. Snow avalanches can occur as different types, such as snow slab avalanches, where a slab of snow slides \parencite{gaumeSnowFractureRelation2017}. Such avalanches are among the most prominent hazards in mountainous regions \parencite{gaumeSnowFractureRelation2017}, they can be triggered by rapid loading near the surface, for example by a person skiing over them, or by a dynamite source \parencite{schweizerSnowAvalancheFormation2003}. The cracks caused by this propagate and eventually lead to material failure, the release of the slab is caused by an increase of shear stress in a weak layer in the snowpack \parencite{habermannInfluenceSnowpackLayering2008}. \\
 
-\noindent Understanding the signatures of different types of sources is crucial for understanding crack propagation. This research project aims to compare simulated wave propagation of three different source types (pure acoustic pressure source, elastic vector source,and a moment tensor source in 2d) in two different models, which are earth-snow-air and snow-air. The aim of this comparison is to determine which models and source types are useful to understand crack propagation in snow leading to slab avalanches, which will be analyzed in the Master Thesis. These considerations are not only based on the results of the different types of simulations, but also computation time and memory. 
+\noindent Understanding the signatures of different types of sources is crucial for understanding crack propagation. This research project aims to compare simulated wave propagation of three different source types (pure acoustic pressure source, elastic vector source, and a moment tensor source in 2d) in two different models, which are earth-snow-air and snow-air. The aim of this comparison is to determine which models and source types are useful to understand crack propagation in snow leading to slab avalanches, which will be analyzed in the Master Thesis. These considerations are not only based on the results of the different types of simulations, but also computation time and memory. 
 
 \section{Methodology}
 \subsection{Introduction to Mondaic Salvus Software}
@@ -618,7 +618,7 @@ Sampling Interval       & 200   \\ \hline
 
 \noindent As seen from the medium parameters in table \ref{tab:material_properties}, the s-wave velocity in air is 0, because it is a fluid. This means that at the interface, all incident s-waves are either reflected into the medium below or transformed to p-waves at the boundary \parencite{borcherdtReflectionRefractionGeneral1982}. This explains why only the pressure field can be seen in the plots in figure \ref{fig:ac_snowair_air}. The contrast between complexity of the wavefields in soil and snow shown for example in figure \ref{fig:el_layered_mom_t42} can also be explained by this. The snow layer has much more reflections of s-waves from the snow-air boundary, whereas s-waves can be refracted at the snow-soil boundary.\
 
-\noindent Furthermore, the medium properties in table \ref{tab:material_properties} also show a strong contrast in density \rho between all three mediums. According to the formulations of wave speed described by \cite{akiQuantitativeSeismology2002} and \cite{dennemanReflectionTransmissionWaves2002}, where \ref{P_wave_fluid} describes the speed of a p-wave in a pure acoustic medium, \ref{P_wave_speed} the p-wave speed with Lamé-parameters \lambda  and \rho and \ref{s_wvae_speed} describes the s-wave speed. 
+\noindent Furthermore, the medium properties in table \ref{tab:material_properties} also show a strong contrast in density \rho\ between all three mediums. According to the formulations of wave speed described by \cite{akiQuantitativeSeismology2002} and \cite{dennemanReflectionTransmissionWaves2002}, where \ref{P_wave_fluid} describes the speed of a p-wave in a pure acoustic medium, \ref{P_wave_speed} the p-wave speed with Lamé-parameters \lambda  and \rho and \ref{s_wvae_speed} describes the s-wave speed. 
 \begin{subequations}
     \label{Wavespeeds}
         \begin{equation}
@@ -690,8 +690,8 @@ in figures \ref{fig:ac_snowair_all}, \ref{fig:ac_layered_all},
 source direction in \ref{fig:source_dir_v_s}, it becomes clear that the
 particle velocity patterns are shaped like a half-ellipse perpendicular
 to the direction of propagation and opposite to the direction of
-propagation. \noindent In the moment tensor source case, whose directions are shown in figure \ref{fig:source_dir_mom} and the corresponding results in \ref{fig:el_snowair_mom_all} and \ref{fig:el_layered_mom_all}, both cases show half-ellipsoidal particle velocity propagation in negative y-direction. 
-The motion caused by the moment tensor source is shown in the beach ball in figure \ref{fig:beachball_mom} taken from \cite{MomentTensorsPractical2025}, where the blue arrows indicate direction of motion by the source. This means that there is expansion in the horizontal direction, indicated by the black area in \ref{fig:beachball_mom}, which corresponds well 
+propagation. This makes sense because there is expansion downward, causing the ellipsoidal field, which is mirrored. \noindent In the moment tensor source case, whose directions are shown in figure \ref{fig:source_dir_mom} and the corresponding results in \ref{fig:el_snowair_mom_all} and \ref{fig:el_layered_mom_all}, both cases show half-ellipsoidal particle velocity propagation in negative y-direction. 
+The motion caused by the moment tensor source is shown in the beach ball in figure \ref{fig:beachball_mom} taken from \cite{MomentTensorsPractical2025}, where the blue arrows indicate direction of motion by the source. This means that there is expansion in the horizontal 
 \end{minipage}
 \hspace{0.02\linewidth}
 \begin{minipage}[t]{0.2\linewidth}
@@ -701,7 +701,7 @@ The motion caused by the moment tensor source is shown in the beach ball in figu
 \captionof{figure}{Beach ball for moment tensor focal mechanism.}
 \label{fig:beachball_mom}
 \end{minipage}
-\noindent with the velocity fields observed, since the tangential motion between the expansion and compression indicated by the purple arrows has the same shape as the wavefronts observed. 
+\noindent horizontal direction, indicated by the black area in \ref{fig:beachball_mom}, which corresponds well with the velocity fields observed, since the tangential motion between the expansion and compression indicated by the purple arrows has the same shape as the wavefronts observed. 
 
 % \begin{wrapfigure}{R}{0.15\textwidth}
 %     \centering
@@ -712,7 +712,7 @@ The motion caused by the moment tensor source is shown in the beach ball in figu
 
 
 \subsection{Outlook to Master Thesis Project}
-\noindent This research project serves as an useful preparation for the following master thesis. This project was crucial in learning how to use Mondaic Salvus modelling software, which will also be used in the thesis. Furthermore, the models generated and the results from different source types serve as a basis for the thesis project. From this preparation, I now understand for example that, as shown by the results of the different models and source types, including the air layer is not strictly necessary because there is no significant wave propagation in that layer, this will help to optimize model computation time in the thesis. The models used in this research project are much simpler than the ones which will be used in the master thesis, for example there is no topography included in these models and the snow layer is homogenous, which means that new models will need to be made for the thesis in order to represent the conditions on the mountain more accurately. 
+\noindent This research project serves as an useful preparation for the following master thesis. This project was crucial in learning how to use Mondaic Salvus modelling software, which will also be used in the thesis. Furthermore, the models generated and the results from different source types serve as a basis for the thesis project. From this preparation, I now understand for example that, as shown by the results of the different models and source types, including the air layer is not strictly necessary because there is no significant wave propagation in that layer, however the number of layers is important for complexity of wavefields caused by reflection. This will help to optimize model computation time in the thesis. The models used in this research project are much simpler than the ones which will be used in the master thesis, for example there is no topography included in these models and the snow layer is homogenous, which means that new models will need to be made for the thesis in order to represent the conditions on the mountain more accurately. 
 
 \newpage
 \section{Bibliography} 
